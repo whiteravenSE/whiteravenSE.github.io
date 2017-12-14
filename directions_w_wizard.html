@@ -92,13 +92,13 @@
               '<input type="button" value="go" id="go">');
           infoWindow.setPosition(e.latLng);
           infoWindow.open(map);
-        }
-          
+        }); 
         google.maps.event.addListener(map, 'click', function(e) {
           marker = new google.maps.Marker({
             position: event.latLng,
             map: map
           });
+        });
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
           });
@@ -120,8 +120,8 @@
                   }
                 });
           });
-        });
-                  
+       
+
     function changeMap_0() {
       var whereClause;
       var searchString = document.getElementById('search-string_0').value.replace(/'/g, "\\'");

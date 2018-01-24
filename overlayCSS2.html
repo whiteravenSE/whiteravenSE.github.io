@@ -9,6 +9,7 @@
        * element that contains the map. */
       #map {
         height: 100%;
+        z-index: -1;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -85,8 +86,8 @@
         });
 
         var bounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(33.591, -84.4634),
-            new google.maps.LatLng(33.701, -84.4234));
+            new google.maps.LatLng(33.631, -84.4634),
+            new google.maps.LatLng(33.651, -84.4234));
 
         // The photograph is courtesy of the U.S. Geological Survey.
         var srcImage = 'https://whiteravense.github.io/deltaOverlay.png';
@@ -172,5 +173,11 @@
   </head>
   <body>
     <div id="map"></div>
+    <div class="row">
+  <div class="column">
+    <h2>Column 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  </div>
+</div>
   </body>
 </html>

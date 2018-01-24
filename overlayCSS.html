@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 15px;
+}
+
+/* Create three equal columns that floats next to each other */
+.map {
+    float: left;
+    width: 75%;
+    padding: 15px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width:600px) {
+    .column {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Header</h1>
+  <p>Resize the browser window to see the responsive effect.</p>
+</div>
+
+<div class="topnav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+<div class="row">
+  <div class="column">
+    <h2>Column 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  </div>
+  <div class="map">
+    <script>
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: {lat: 33.640, lng: -84.4462}
+          //center: {lat: 37.783, lng: -122.403}  
+          //33.640622, -84.446288
+        });
+
+        var bounds = {
+          17: [[20969, 20970], [50657, 50658]],
+          18: [[41939, 41940], [101315, 101317]],
+          19: [[83878, 83881], [202631, 202634]],
+          20: [[167757, 167763], [405263, 405269]]
+        };
+
+        var imageMapType = new google.maps.ImageMapType({
+          getTileUrl: function(coord, zoom) {
+            if (zoom < 17 || zoom > 20 ||
+                bounds[zoom][0][0] > coord.x || coord.x > bounds[zoom][0][1] ||
+                bounds[zoom][1][0] > coord.y || coord.y > bounds[zoom][1][1]) {
+              return null;
+            }
+
+            return ['//www.gstatic.com/io2010maps/tiles/5/L2_',
+                zoom, '_', coord.x, '_', coord.y, '.png'].join('');
+          },
+          tileSize: new google.maps.Size(256, 256)
+        });
+
+        map.overlayMapTypes.push(imageMapType);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHLc5B2pLa8yDmgPGdeW8gqcGi__N-HZU&callback=initMap">
+    </script>
+  </div>
+</div>
+
+</body>
+</html>

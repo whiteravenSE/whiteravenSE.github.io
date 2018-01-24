@@ -5,6 +5,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
 * {
     box-sizing: border-box;
 }
@@ -85,12 +97,8 @@ body {
   <a href="#">Link</a>
 </div>
 
-<div class="row">
-  <div class="column">
-    <h2>Column 1</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-  </div>
-  <div class="map">
+<div class="map">
+  <div id="map"></div>
     <script>
 
       function initMap() {
@@ -128,6 +136,12 @@ body {
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHLc5B2pLa8yDmgPGdeW8gqcGi__N-HZU&callback=initMap">
     </script>
+  </div>
+
+<div class="row">
+  <div class="column">
+    <h2>Column 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
   </div>
 </div>
 
